@@ -12,6 +12,8 @@ jobs:
       ARM_TENANT_ID: "d7fc8fb2-8d8f-48ae-88e0-1cfdba2a7fbf"
       
     steps:
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
       - name: checkout code
         uses: actions/checkout@v4
 
