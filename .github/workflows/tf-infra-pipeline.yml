@@ -5,14 +5,15 @@ on: workflow_dispatch
 jobs:
   tfplan:
     runs-on: ubuntu-latest
+    env:
+      ARM_CLIENT_ID: "5ae3190b-658c-440a-a47a-fc1136ae3f4a"
+      ARM_CLIENT_SECRET: "MJN8Q~FqtRokBS6I6y-5E5E.YAed7tnkONBXnb7c"
+      ARM_SUBSCRIPTION_ID: "9eb6dd3b-7d3d-4d3a-82fa-3747ca6f588e"
+      ARM_TENANT_ID: "d7fc8fb2-8d8f-48ae-88e0-1cfdba2a7fbf"
+      
     steps:
       - name: checkout code
         uses: actions/checkout@v4
-
-      - name: Azure Login
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Initialize Terraform
         run: terraform init
