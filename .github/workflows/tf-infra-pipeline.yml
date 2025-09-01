@@ -31,7 +31,7 @@ jobs:
         run: terraform validate
 
       - name: Terraform Plan
-        working-directory: ../../
+        working-directory: ../
         run: terraform plan -var-file="dev.terraform.tfvars"
         
   tfapply:
@@ -58,7 +58,7 @@ jobs:
         run: terraform init
         
       - name: Deploy infrastructure
-        working-directory: ../..
+        working-directory: ../
         run: terraform apply -var-file="dev.terraform.tfvars" -auto-approve
         
           
