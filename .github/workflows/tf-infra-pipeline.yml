@@ -31,7 +31,7 @@ jobs:
         run: terraform validate
 
       - name: Initialize Terraform
-        run: terraform plan -var-file=dev.terraform.tfvars
+        run: terraform plan -var-file="dev.terraform.tfvars"
         
   tfapply:
     runs-on: ubuntu-latest
@@ -57,7 +57,7 @@ jobs:
         run: terraform init
         
       - name: Deploy infrastructure
-        run: terraform apply -var-file=dev.terraform.tfvars -auto-approve
+        run: terraform apply -var-file="dev.terraform.tfvars" -auto-approve
         
           
     
