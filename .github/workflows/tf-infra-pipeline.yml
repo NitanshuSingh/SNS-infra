@@ -32,10 +32,7 @@ jobs:
 
       - name: Terraform Plan
         working-directory: ../../
-        run: |
-          pwd
-          ls
-          terraform plan -var-file="dev.terraform.tfvars"
+        run: terraform plan -var-file="dev.terraform.tfvars"
         
   tfapply:
     runs-on: ubuntu-latest
@@ -62,10 +59,7 @@ jobs:
         
       - name: Deploy infrastructure
         working-directory: ../..
-        run: 
-          pwd
-          ls
-          terraform apply -var-file="dev.terraform.tfvars" -auto-approve
+        run: terraform apply -var-file="dev.terraform.tfvars" -auto-approve
         
           
     
