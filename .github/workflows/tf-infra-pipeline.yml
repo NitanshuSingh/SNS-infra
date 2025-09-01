@@ -27,10 +27,11 @@ jobs:
       - name: Initialize Terraform
         run: terraform init
 
-      - name: Initialize Terraform
+      - name: Terraform Validate
         run: terraform validate
 
-      - name: Initialize Terraform
+      - name: Terraform Plan
+        shell: bash
         run: terraform plan -var-file="dev.terraform.tfvars"
         
   tfapply:
@@ -57,6 +58,7 @@ jobs:
         run: terraform init
         
       - name: Deploy infrastructure
+        shell: bash
         run: terraform apply -var-file="dev.terraform.tfvars" -auto-approve
         
           
