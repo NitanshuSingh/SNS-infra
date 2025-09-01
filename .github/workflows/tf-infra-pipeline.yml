@@ -35,6 +35,9 @@ jobs:
         
   tfapply:
     runs-on: ubuntu-latest
+    needs: tfplan
+    environment:
+      name: dev
     
     steps:
       - name: checkout code
@@ -50,11 +53,8 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
-    environment:
-      name: dev
-
-       - name: Deploy infrastructure
-         uses: terraform apply -auto-approve
+      - name: Deploy infrastructure
+        run: terraform apply -auto-approve
         
           
     
