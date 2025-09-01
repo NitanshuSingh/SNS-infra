@@ -53,6 +53,9 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
+      - name: Initialize Terraform
+        run: terraform init
+        
       - name: Deploy infrastructure
         run: terraform apply -auto-approve
         
