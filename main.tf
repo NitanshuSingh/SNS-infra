@@ -1,4 +1,7 @@
 resource "azurerm_resource_group" "rg1" {
-  name     = "SNS-rg"
-  location = "centralindia"
+  name     = var.rg_name
+  location = var.rg_location
 }
+
+variable "rg_name" {}
+variable "rg_location" {}
