@@ -5,7 +5,7 @@ on: workflow_dispatch
 permissions:
   id-token: write
   contents: read
-  
+  security-events: write
 jobs:
   tfsec:
     runs-on: ubuntu-latest
