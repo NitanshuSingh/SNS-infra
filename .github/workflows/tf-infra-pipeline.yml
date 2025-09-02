@@ -7,7 +7,14 @@ permissions:
   contents: read
   
 jobs:
+  tfsec:
+    runs-on: ubuntu-latest
+    steps:
+    - name: tfsec action
+      uses: aquasecurity/tfsec-action@v1.0.3
+          
   tfplan:
+    needs: tfsec
     runs-on: ubuntu-latest
       
     steps:
