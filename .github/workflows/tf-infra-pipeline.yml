@@ -10,8 +10,14 @@ jobs:
   tfsec:
     runs-on: ubuntu-latest
     steps:
-    - name: tfsec action
-      uses: aquasecurity/tfsec-action@v1.0.3
+    - name: Run tfsec with SARIF output
+      run: tfsec . --format sarif --out tfsec.sarif
+
+    - name: Upload SARIF to GitHub
+      uses: github/codeql-action/upload-sarif@v3
+      with:
+        sarif_file: tfsec.sarif
+    
           
   tfplan:
     needs: tfsec
